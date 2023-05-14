@@ -1,0 +1,29 @@
+import axios from 'axios'
+const geturl="http://localhost:2525/candidates"
+const posturl="http://localhost:2525/posts";
+const puturl="http://localhost:2525/upd";
+const result="http://localhost:2525/show";
+
+
+class UserService {
+
+    getUsers(){
+        return axios.get(geturl);
+    }
+    getUserByIde(aid){
+        return axios.get(geturl+"/"+aid);
+    }
+    createUser(student){
+        return axios.post(posturl,student);
+    }
+    addVote(aid)
+    {
+        return axios.put(puturl+"/"+aid);
+    }
+    getResult()
+    {
+        return axios.get(result);
+    }
+}
+
+export default new UserService()
